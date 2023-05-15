@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+    overflow: hidden;
+    height: calc(100vh - 100px);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+.content{
+    width: 800px;
+    
+}
+
+.loading__bar{
+    border-radius: 10px;
+    width: 500px;
+    height: 50px;
+    background-color: #F498AD;
+    display: none;
+}
+
+@keyframes loading {
+    from{
+        width: 20px;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+@keyframes color-change {
+    from{
+        background-color: #F498AD;
+    }
+    50%{
+        background-color: #7F6EDB;  
+    }
+    to{
+        background-color: #2E9AFF;
+    }
+}
+
+@keyframes flash_dots {
+    from{
+        width: 0;
+    }
+    to{
+        width: 100%
+    }
+}
+
+.content:hover .loading__bar{
+    display: block;
+    animation: loading 10s 1 ease-out -0.1s forwards, color-change 10s alternate linear forwards;
+}
+
+.flashing__dots{
+    position: absolute;
+    overflow: hidden;
+    animation: flash_dots 2s infinite normal running cubic-bezier(0.895, 0.03, 0.685, 0.22) both ;
+}
